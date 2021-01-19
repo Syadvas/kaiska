@@ -47,7 +47,10 @@ def webhook():
         yesterday = ">>".join(yesterday.split("&&"))
         lastWeek = df["Orders"].iloc[weekday]
         lastWeek = ">>".join(lastWeek.split("&&"))
-        return "Yestreday you had " +str(yesterday) +" and last week same day " +str(lastWeek) + "\n What should I use as refrence?"
+        fulfillmentText =  "Yestreday you had " +str(yesterday) +" and last week same day " +str(lastWeek) + "\n What should I use as refrence?"
+        return {"fulfillmentText":fulfillmentText,
+                "displayText":25,
+                "source":"webhookdata"}
 
     if query == "yesterday":
         a = df["Orders"].iloc[-1]
